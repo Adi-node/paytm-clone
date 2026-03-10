@@ -1,5 +1,5 @@
 import mongoose, { model, Schema } from "mongoose";
-mongoose.connect('mongodb+srv://devilp1364_db_user:<db_password>@cluster0.49iw32p.mongodb.net/?appName=Cluster0');
+mongoose.connect(process.env.MONGO_URL);
 
 const userSchema = new Schema({
     userName:{

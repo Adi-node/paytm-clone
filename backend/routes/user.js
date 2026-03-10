@@ -3,7 +3,6 @@ import z from "zod";
 import { accountModel, userModel } from "../db";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import {JWT_SECRET} from '../config';
 import { authMiddleware } from "../middleware";
 
 const userRouter = Router();
@@ -37,7 +36,7 @@ userRouter.post('/signup',async (req,res) => {
             password:hashedPassward
         });
     
-        const token = jwt.sign({userId:dbUser._id},JWT_SECRET);
+        const token = jwt.sign({userId:dbUser._id},process.env.JWT_SECRET);
 
         await accountModel.create({
             userId:dbUser._id,
@@ -82,7 +81,7 @@ userRouter.post('/signin',async (req,res) => {
             return;
         }
     
-        const token = jwt.sign({userId:dbUser._id},JWT_SECRET);
+        const token = jwt.sign({userId:dbUser._id},process.env.JWT_SECRET);
     
         res.status(200).json({
             message:"User logged in successfully",
