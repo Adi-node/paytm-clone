@@ -1,6 +1,6 @@
 import { Router } from "express";
 import z from "zod";
-import { accountModel, userModel } from "../dp";
+import { accountModel, userModel } from "../db";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import {JWT_SECRET} from '../config';
