@@ -1,9 +1,9 @@
 import { Router } from "express";
 import z from "zod";
-import { accountModel, userModel } from "../db";
+import { accountModel, userModel } from "../db.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { authMiddleware } from "../middleware";
+import { authMiddleware } from "../middleware.js";
 
 const userRouter = Router();
 
@@ -50,7 +50,8 @@ userRouter.post('/signup',async (req,res) => {
     
     } catch (error) {
         res.status(500).json({
-            message:"Internal server error"
+            message:"Internal server error",
+            error
         });
     }
 

@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { authMiddleware } from "../middleware";
-import { accountModel } from "../db";
+import mongoose from "mongoose";
+import { authMiddleware } from "../middleware.js";
+import { accountModel } from "../db.js";
 
 
 const accountRouter = Router();
@@ -27,9 +28,10 @@ accountRouter.get('/balance',authMiddleware,async (req,res) =>{
     }
 })
 
-accountRouter.post('/transfer', async (req,res) =>{
+accountRouter.post('/transfer', authMiddleware, async (req,res) =>{
+    let session;
     try {
-        const session =await mongoose.startSession();
+        session =await mongoose.startSession();
     
         session.startTransaction();
     
