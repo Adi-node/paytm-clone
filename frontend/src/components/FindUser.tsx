@@ -1,7 +1,7 @@
 import { capitalizeFirstLetter } from "./AppBar";
 import { InputBox } from "./InputBox"
 
-const getInitial = (name:string):string =>{
+export const getInitial = (name:string):string =>{
     return name.charAt(0).toUpperCase();
 }
 
