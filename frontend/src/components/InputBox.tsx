@@ -11,7 +11,7 @@ export const InputBox = ({label,placeholder,type, onChange}:{label:string,placeh
             {label}
         </div>
         <div className="p-1.5 border-2 border-gray-200 rounded-md flex justify-between">
-            <input onChange={onChange} type={isPassword && !hidden ? "text" : type} placeholder={placeholder} className="outline-none w-full"></input>
+            <input onChange={onChange} type={isPassword && !hidden ? "text" : type} placeholder={placeholder}  className="outline-none w-full"></input>
             {isPassword && (
                 <div onClick={() => setHidden(!hidden)} className="cursor-pointer flex items-center px-1 text-gray-600">
                     {hidden ? <FaEye /> : <FaEyeSlash />}

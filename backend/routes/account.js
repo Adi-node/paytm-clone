@@ -10,7 +10,8 @@ accountRouter.get('/balance',authMiddleware,async (req,res) =>{
     try {
         const userId = req.userId;
 
-        const account = await accountModel.findOne({userId}, 'balance');
+        const account = await accountModel.findOne({userId}).populate("userId","firstName");
+        console.log(account);
 
         if(!account){
             return res.status(404).json({
@@ -19,7 +20,8 @@ accountRouter.get('/balance',authMiddleware,async (req,res) =>{
         }
 
         return res.status(200).json({
-            balance: account.balance
+            balance: account.balance,
+            firstName:account.userId.firstName
         })
     } catch (error) {
         return res.status(500).json({
