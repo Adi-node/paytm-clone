@@ -11,7 +11,6 @@ accountRouter.get('/balance',authMiddleware,async (req,res) =>{
         const userId = req.userId;
 
         const account = await accountModel.findOne({userId}).populate("userId","firstName");
-        console.log(account);
 
         if(!account){
             return res.status(404).json({
