@@ -121,8 +121,6 @@ The backend exposes the following REST API endpoints under the `/api/v1` prefix:
 
 ## Screenshots
 
-*(Placeholders for application screenshots)*
-
 | Sign In Page | Dashboard | Send Money |
 | :----------: | :-------: | :--------: |
 | ![Login Page](./screenshots/signin.png) | ![Dashboard](./screenshots/dashboard.png) | ![Send Money](./screenshots/sendMoney.png) |
